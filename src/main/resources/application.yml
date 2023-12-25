@@ -1,0 +1,4 @@
+rate-limiter:
+  fixed-window:
+    allowed-request-count: 200
+    time-frame: 5 #minutes
