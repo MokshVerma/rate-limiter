@@ -13,10 +13,19 @@ public class TestService {
 
     private final RateLimiterService rateLimiterService;
 
-    @PostConstruct
+//    @PostConstruct
     public void test(){
         for(int i=0; i<210; i++) {
             System.out.println(rateLimiterService.isRateLimited("test"));
+        }
+    }
+
+    public String isRateLimited(String identifier) {
+        boolean isLimited = rateLimiterService.isRateLimited(identifier);
+        if (isLimited) {
+            return "You are rate-limited. Please try again later.";
+        } else {
+            return "API is working!";
         }
     }
 }
